@@ -8,30 +8,23 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin-bottom: 10rem;
+    margin-top: 4rem;
 }
 .app {
     border: black 5px;
     display: flex;
     flex-flow: column wrap;
-    align-items: center;;
+    align-items: center;
 }
-.fila1 {
+
+.app div {
     display: flex;
     justify-content: center;
 }
-.fila2 {
-    display: flex;
-    justify-content: center;
+.app div button {
+    flex-basis: 2rem;
 }
-.fila3 {
-    display: flex;
-    justify-content: center;
-}
-.fila4 {
-    display: flex;
-    justify-content: center;
-}
-.fila5 {
-    display: flex;
-    justify-content: center;
+.fila5 button {
+    flex: 1;
 }
