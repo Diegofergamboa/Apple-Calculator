@@ -1,0 +1,37 @@
+/* * {
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box;
+} */
+
+.h1 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.app {
+    border: black 5px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;;
+}
+.fila1 {
+    display: flex;
+    justify-content: center;
+}
+.fila2 {
+    display: flex;
+    justify-content: center;
+}
+.fila3 {
+    display: flex;
+    justify-content: center;
+}
+.fila4 {
+    display: flex;
+    justify-content: center;
+}
+.fila5 {
+    display: flex;
+    justify-content: center;
+}
