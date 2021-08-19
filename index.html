@@ -4,81 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Apple calculator</title>
     <link href="/styles.css" rel="stylesheet" >
+    <title>Calculadora Apple</title>
 </head>
 <body>
-    <div class="h1">
-        Calculadora Apple
-    </div>
-    <div class="app">
-        <input class="output"></input>
-        <div class="fila1">
-            <button id="ac">
-                Boton 1
-            </button>
-            <button id="negativo">
-                Boton 2
-            </button>
-            <button id="porcentaje">
-                Boton 3
-            </button>
-            <button id="dividir">
-                Boton 4
-            </button>
-        </div>
-        <div class="fila2">
-            <button id="siete">
-                Boton 5
-            </button>
-            <button id="ocho">
-                Boton 6
-            </button>
-            <button id="nueve">
-                Boton 7
-            </button>
-            <button id="multiplicar">
-                Boton 8
-            </button>
-        </div>
-        <div class="fila3">
-            <button id="cuatro">
-                Boton 9
-            </button>
-            <button id="cinco">
-                Boton 10
-            </button>
-            <button id="seis">
-                Boton 11
-            </button>
-            <button id="menos">
-                Boton 12
-            </button>
-        </div>
-        <div class="fila4">
-            <button id="uno">
-                Boton 13
-            </button>
-            <button id="dos">
-                Boton 14
-            </button>
-            <button id="tres">
-                Boton 15
-            </button>
-            <button id="suma">
-                Boton 16
-            </button>
-        </div>
-        <div class="fila5">
-            <button id="cero">
-                Boton 17
-            </button>
-            <button id="decimal">
-                Boton 18
-            </button>
-            <button id="total">
-                Boton 19
-            </button>
+    <h1>Calculadora</h1>
+    <div class="calculator">
+        <input class="calculator__screen" type="text" value="0" placeholder="" disabled />
+        <div class="calculator__keypad">
+            <button onclick="getContentClick(event)" class="btn btn-dark">AC</button>
+            <button onclick="getContentClick(event)" class="btn btn-dark">+/-</button>
+            <button onclick="getContentClick(event)" class="btn btn-dark">%</button>
+            <button onclick="getContentClick(event)" class="btn btn-orange">/</button>
+
+            <button onclick="getContentClick(event)" class="btn">7</button>
+            <button onclick="getContentClick(event)" class="btn">8</button>
+            <button onclick="getContentClick(event)" class="btn">9</button>
+            <button onclick="getContentClick(event)" class="btn btn-orange">X</button>
+
+            <button onclick="getContentClick(event)" class="btn">4</button>
+            <button onclick="getContentClick(event)" class="btn">5</button>
+            <button onclick="getContentClick(event)" class="btn">6</button>
+            <button onclick="getContentClick(event)" class="btn btn-orange">-</button>
+
+            <button onclick="getContentClick(event)" class="btn">1</button>
+            <button onclick="getContentClick(event)" class="btn">2</button>
+            <button onclick="getContentClick(event)" class="btn">3</button>
+            <button onclick="getContentClick(event)" class="btn btn-orange">+</button>
+
+            <button onclick="getContentClick(event)" class="btn btn-double">0</button>
+            <button onclick="getContentClick(event)" class="btn">,</button>
+            <button onclick="getContentClick(event)" class="btn btn-orange">=</button>
         </div>
     </div>
     <script src="app.js"></script>
