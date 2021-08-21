@@ -34,6 +34,8 @@ const filterAction = value => {
     value === '+/-' ? setOperation('+/-') : null ;
     value === '/' ? setOperation('/') : null ;
     value === '%' ? setOperation('%') : null ;
+
+    value === '=' ? calculation() : null ;
 }
 
 // Función para hacer en el Input el print de el valor que se trajo por evento a través del HTMLinner
@@ -70,9 +72,13 @@ function calculation () {
     let valueTwo = transformComaToPoint(screenValue.value) ; // El valor de la pantalla
     let total =  0 ; // inicializada 
 
+
+    //Operacion de suma
     if (this.operator === '+' && screenValue.value !== '') { // Si está vacio no hay nada que calcular
         total = valueOne + valueTwo ; // no hace falta hacer el return porque cuando haga la ejecucion el le da set a todos los valores.
 
+
+    total = transformPointToComma(total);
     this.inputValueMemo = total ; // Después de hacer la operación la guardamos en input value Memmo que no es más que el total de la primera operación
     screenValue.value = "";
     screenValue.placeholder = total ; // Con esto vamos a hacer que cuando se termine de realizar la secuencia de operaciones al dar en un operador, cuando este de set, devuelva por pantalla como placeholder dicho resultado y no cero.
@@ -93,6 +99,7 @@ function transformPointToComma (value) {
     return resultTransform ;
 }
 
+alert('revisar mapeo y comentar con base en clase 54') ;
 // Función para borrar.
 
 // Función para sumar.
