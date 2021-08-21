@@ -33,6 +33,7 @@ const filterAction = value => {
     value === 'X' ? setOperation('*') : null ;
     value === '+/-' ? setOperation('+/-') : null ;
     value === '/' ? setOperation('/') : null ;
+    value === '%' ? setOperation('%') : null ;
 }
 
 // Función para hacer en el Input el print de el valor que se trajo por evento a través del HTMLinner
@@ -51,14 +52,32 @@ function addNumberInput(value) {
 
 // Construcción de guía hacia las operaciones de la calculadora
 var operator = null ;
+var inputValueMemo = 0 ; // Esta variable va a tener el total de un cálculo
 // Función para guiar las operaciones.
 
 function setOperation (operator) {
+    const inputValuescreen = getElementsByClassName('calculator__screen')[0].value ; 
     this.operator = operator;
-    console.log(operator);
+
+    if (inputValuescreen != 0) {
+        calculation();
+    }
 }
 
+function calculation () {
+    const screenValue = document.getElementsByClassName('calculator__screen')[0] ;
+    let valueOne = this.inputValueMemo ; // para que yo pueda tomar el valor del calculo anterior y hacer la operacion con el siguiente valor
+    let valueTwo = screenValue.value ; // El valor de la pantalla
+    let total =  0 ; // inicializada 
 
+    if (this.operator === '+' && screenValue.value !== '') { // Si está vacio no hay nada que calcular
+        total = valueOne + valueTwo ; // no hace falta hacer el return porque cuando haga la ejecucion el le da set a todos los valores.
+
+    this.inputValueMemo = total ; // Después de hacer la operación la guardamos en input value Memmo que no es más que el total de la primera operación
+    screenValue.value = "";
+    screenValue.placeholder = total ; // Con esto vamos a hacer que cuando se termine de realizar la secuencia de operaciones al dar en un operador, cuando este de set, devuelva por pantalla como placeholder dicho resultado y no cero.
+    }
+}
 
 // Función para borrar.
 
