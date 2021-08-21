@@ -66,8 +66,8 @@ function setOperation (operator) {
 
 function calculation () {
     const screenValue = document.getElementsByClassName('calculator__screen')[0] ;
-    let valueOne = this.inputValueMemo ; // para que yo pueda tomar el valor del calculo anterior y hacer la operacion con el siguiente valor
-    let valueTwo = screenValue.value ; // El valor de la pantalla
+    let valueOne = transformComaToPoint(this.inputValueMemo); // para que yo pueda tomar el valor del calculo anterior y hacer la operacion con el siguiente valor
+    let valueTwo = transformComaToPoint(screenValue.value) ; // El valor de la pantalla
     let total =  0 ; // inicializada 
 
     if (this.operator === '+' && screenValue.value !== '') { // Si está vacio no hay nada que calcular
@@ -77,6 +77,20 @@ function calculation () {
     screenValue.value = "";
     screenValue.placeholder = total ; // Con esto vamos a hacer que cuando se termine de realizar la secuencia de operaciones al dar en un operador, cuando este de set, devuelva por pantalla como placeholder dicho resultado y no cero.
     }
+}
+
+function transformComaToPoint (value) {
+    if (typeof value != "number") {
+        let resultTransform = value.replace(',' , '.') ;
+        return parseFloat(resultTransform) ;
+    }
+    return value ;
+};
+
+function transformPointToComma (value) {
+    let resultTransform = value.toString();
+    resultTransform = resultTransform.replace('.' , ',');
+    return resultTransform ;
 }
 
 // Función para borrar.
