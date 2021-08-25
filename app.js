@@ -1,10 +1,11 @@
-// Llamar al imprimir en el screencalculator.
+// Llamar los eventos del click.
 
 function getContentClick(event) {
-    const value = event.target.innerHTML;
-    filterAction(value);
+    const value = event.target.innerHTML; //1. Acceder al valor del evento.
+    // Fin
 }
 
+Redireccionar los valores de cada inner html a una función en específico
 const filterAction = value => { 
     value === '1' ? addNumberInteger(1) : null ;
 }
@@ -12,7 +13,7 @@ const filterAction = value => {
 function addNumberInteger (value) {
     const inputScreen = document.getElementsByClassName('screen__calculator')[0];
     inputScreen.value = '66';
-}
+} 
 
 
 
