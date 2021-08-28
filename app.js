@@ -48,7 +48,12 @@ function addNumberInteger (value) {
 
 
 function setOperation (operator) {
+    inputScreenValue = document.getElementsByClassName('screen__calculator')[0].value;
     this.operator = operator ;
+    if (inputScreenValue !== 0) {
+        calculation(operator);
+    }
+    
 }
 
 function calculation (operator) {
@@ -57,10 +62,11 @@ function calculation (operator) {
     let firstvalue = valueMemo ;
     let secondValue = inputScreen ;
     
-    if (operator === '+' && operator <= 1) {
+    if (operator === '+' && operator.length <= 1) {
         total = firstvalue + secondValue ;
     }
 
     inputScreen.value = total ;
-    valueMemo = total ;
+    this.valueMemo = total ;
+    inputScreen.placeholder = total;
 }
