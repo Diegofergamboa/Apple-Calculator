@@ -1,3 +1,6 @@
+var operator = null ;
+var valueMemo = 0 ;
+
 // Llamar los eventos del click.
 
 function getContentClick(event) {
@@ -34,8 +37,6 @@ const filterAction = value => {
 function addNumberInteger (value) {
     const inputScreen = document.getElementsByClassName('calculator__screen')[0];
     const inputValue = inputScreen.value ;
-    // checkZeroComma();
-    console.log(`Valor en addNumberinteger = ${value}`);
 
     // //Checking si es cero o no para sumarle o quitarle el cero que está default
     if (inputValue === '0' && inputValue.length === 1 && value !== ',') {
@@ -46,25 +47,20 @@ function addNumberInteger (value) {
 }
 
 
-
-
 function setOperation (operator) {
-    operator === '+' ? calculation('+') : null
-    operator === '-' ? calculation('-') : null
-    operator === '*' ? calculation('*') : null
+    this.operator = operator ;
 }
 
 function calculation (operator) {
-    let valueOne = null ;
-    if (inputScreen !== 0 && inputScreen.length <= 1) {
-        valueOne = value ;
-    } else {
-        valueOne = total ;
-    } 
-    let valueTwo = value ;
+    inputScreen = document.getElementsByClassName('screen__calculator')[0];
+    this.valueMemo = valueMemo ;
+    let firstvalue = valueMemo ;
+    let secondValue = inputScreen ;
     
-    
-    if (operator === '+') {
-        return total = valueOne + valueTwo ;
+    if (operator === '+' && operator <= 1) {
+        total = firstvalue + secondValue ;
     }
+
+    inputScreen.value = total ;
+    valueMemo = total ;
 }
