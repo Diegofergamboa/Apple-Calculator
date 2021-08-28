@@ -20,40 +20,51 @@ const filterAction = value => {
     value === '8' ? addNumberInteger(8) : null ;
     value === '9' ? addNumberInteger(9) : null ;
     value === '0' ? addNumberInteger(0) : null ;
+    value === ',' ? addNumberInteger(',') : null ;
 
-    // OPERACIONES
-    // value === '1' ? addNumberInteger(1) : null ;
-    // value === '1' ? addNumberInteger(1) : null ;
-    // value === '1' ? addNumberInteger(1) : null ;
+
+    value === '+' ? setOperation('+') : null ;
+    value === '-' ? setOperation('+') : null ;
+    value === '/' ? setOperation('/') : null ;
+    value === 'X' ? setOperation('*') : null ;
+    value === '%' ? setOperation('%') : null ;
 }
 
 
 function addNumberInteger (value) {
-    // console.log('Dentro de AddnumberInteger');
-    // Colocar en el screen el valor que mandé del innerhtml en pantalla
     const inputScreen = document.getElementsByClassName('calculator__screen')[0];
-    // const inputValue = inputScreen.value ;
-    inputScreen.value = value ;
-    // Necsito que no se me borre 
-    // console.log(inputValue);
-    // Colocar en el screen el restante de cada operación y, colocar la operación hasta el momento que se ha realizado
-} 
+    const inputValue = inputScreen.value ;
+    // checkZeroComma();
+    console.log(`Valor en addNumberinteger = ${value}`);
+
+    // //Checking si es cero o no para sumarle o quitarle el cero que está default
+    if (inputValue === '0' && inputValue.length === 1 && value !== ',') {
+        inputScreen.value = value ;
+        return
+    }    
+    inputScreen.value = inputValue + value;
+}
 
 
 
-// function addNumberInteger (accessValue) {
-//     return document.getElementsByClassName('calculator__screen').replace(accessValue);
+
+function setOperation (operator) {
+    operator === '+' ? calculation('+') : null
+    operator === '-' ? calculation('-') : null
+    operator === '*' ? calculation('*') : null
+}
+
+function calculation (operator) {
+    let valueOne = null ;
+    if (inputScreen !== 0 && inputScreen.length <= 1) {
+        valueOne = value ;
+    } else {
+        valueOne = total ;
+    } 
+    let valueTwo = value ;
     
-// }
-
-
-
-
-// Llamar a los eventos de los numeros enteros e imprimirlos por pantalla por medio de la función de filter
-// Setear las operaciones para que cambien el valor por defecto que tienen en pantalla por medio de la función setoperation
-// Eliminar que cuando le de en la operacion el cambie el numero y el otro lo guarde una variable
-// Acomodar que cuando yo le de en coma, el coloque la coma después de un ceor si es primer valor
-// Transformar por medio de la coma en Float lo que corresponda que se coloque en pantalla
-// Colocar suma, resta, multiplicación y división
-// Colocar el valor de AC para borrar pantalla y resetear todas las operaciones.
-// Colocar +/- para convertir de positivo a negativo y viceversa.
+    
+    if (operator === '+') {
+        return total = valueOne + valueTwo ;
+    }
+}
