@@ -27,11 +27,13 @@ const filterAction = value => {
 
 
     value === '+' ? setOperation('+') : null ;
-    value === '-' ? setOperation('+') : null ;
+    value === '-' ? setOperation('-') : null ;
     value === '/' ? setOperation('/') : null ;
     value === 'X' ? setOperation('*') : null ;
     value === '%' ? setOperation('%') : null ;
+    value === '+/-' ? setOperation('+/-') : null ;
 
+    value === '=' ? calculation() : null ;
     value === 'AC' ? resetCalculator() : null ;
 }
 
@@ -59,17 +61,55 @@ function setOperation (operator) {
 }
 
 function calculation (operator) {
-    this.valueMemo = valueMemo ;
     inputScreen = document.getElementsByClassName('calculator__screen')[0];
     inputValue = inputScreen.value
     let firstValue = transformComaToPoint(valueMemo) ;
-    let secondValue = transformComaToPoint(inputValue) ;
+    let secondValue = transformComaToPoint(inputValue) ; 
     let total =  0 ;
 
     if (operator == '+' && inputScreen.value !== "") {
         total = firstValue + secondValue ;
     }
 
+    if (operator == '-' && inputScreen.value !== "") {
+        if (firstValue !== 0) {
+            total = firstValue - secondValue ;
+        } else {
+            total = secondValue ;
+        }
+        
+    }
+
+    if (operator == '*' && inputScreen.value !== "") {
+        if (firstValue !== 0) {
+            total = firstValue * secondValue ;
+        } else {
+            total = secondValue ;
+        }
+        
+    }
+
+    if (operator == '/' && inputScreen.value !== "") {
+        if (firstValue !== 0) {
+            total = firstValue / secondValue ;
+        } else {
+            total = secondValue ;
+        }
+        
+    }
+
+    if(operator == '%' && inputScreen.value !== "") {
+        total = secondValue / 100 ;
+    }
+
+    if(operator == '+/-' && inputScreen.value !== "") {
+        if (secondValue > 0) {
+            total = -secondValue ;
+        }
+    }
+
+
+    total = transformPointToComma(total);
     this.valueMemo = total ;
     inputScreen.value = "" ;  
     inputScreen.placeholder = total;
@@ -81,6 +121,12 @@ function transformComaToPoint(value) {
         return parseFloat(resultTransform);
     }
     return value;
+}
+
+function transformPointToComma(value) {
+    let resultTransform = value.toString();
+    resultTransform = resultTransform.replace('.', ',');
+    return resultTransform;
 }
 
 function resetCalculator () {
