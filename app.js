@@ -31,6 +31,8 @@ const filterAction = value => {
     value === '/' ? setOperation('/') : null ;
     value === 'X' ? setOperation('*') : null ;
     value === '%' ? setOperation('%') : null ;
+
+    value === 'AC' ? resetCalculator() : null ;
 }
 
 
@@ -81,3 +83,13 @@ function transformComaToPoint(value) {
     return value;
 }
 
+function resetCalculator () {
+    inputScreen = document.getElementsByClassName('calculator__screen')[0];
+    this.operator = operator ;
+    this.valueMemo = valueMemo ;
+    
+    inputScreen.value = 0 ;
+    inputScreen.placeholder = 0 ;
+    valueMemo = 0 ;
+    operator = null ;
+}
