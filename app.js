@@ -48,7 +48,7 @@ function addNumberInteger (value) {
 
 
 function setOperation (operator) {
-    inputScreenValue = document.getElementsByClassName('screen__calculator')[0].value;
+    inputScreenValue = document.getElementsByClassName('calculator__screen')[0];
     this.operator = operator ;
     if (inputScreenValue !== 0) {
         calculation(operator);
@@ -57,16 +57,27 @@ function setOperation (operator) {
 }
 
 function calculation (operator) {
-    inputScreen = document.getElementsByClassName('screen__calculator')[0];
     this.valueMemo = valueMemo ;
-    let firstvalue = valueMemo ;
-    let secondValue = inputScreen ;
-    
-    if (operator === '+' && operator.length <= 1) {
-        total = firstvalue + secondValue ;
+    inputScreen = document.getElementsByClassName('calculator__screen')[0];
+    inputValue = inputScreen.value
+    let firstValue = transformComaToPoint(valueMemo) ;
+    let secondValue = transformComaToPoint(inputValue) ;
+    let total =  0 ;
+
+    if (operator == '+' && inputScreen.value !== "") {
+        total = firstValue + secondValue ;
     }
 
-    inputScreen.value = total ;
     this.valueMemo = total ;
+    inputScreen.value = "" ;  
     inputScreen.placeholder = total;
 }
+
+function transformComaToPoint(value) {
+    if (typeof value !== "number") {
+        let resultTransform = value.replace("," , ".") ;
+        return parseFloat(resultTransform);
+    }
+    return value;
+}
+
