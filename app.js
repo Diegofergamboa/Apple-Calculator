@@ -34,6 +34,7 @@ const filterAction = value => {
     value === '+/-' ? setOperation('+/-') : null ;
 
     value === '=' ? calculation() : null ;
+    debugger
     value === 'AC' ? resetCalculator() : null ;
 }
 
@@ -64,14 +65,14 @@ function calculation (operator) {
     inputScreen = document.getElementsByClassName('calculator__screen')[0];
     inputValue = inputScreen.value
     let firstValue = transformComaToPoint(valueMemo) ;
-    let secondValue = transformComaToPoint(inputValue) ; 
-    let total =  0 ;
+    let secondValue = transformComaToPoint(inputValue) ;
+    let total = 0 ;
 
-    if (operator == '+' && inputScreen.value !== "") {
+    if (this.operator == '+' && inputScreen.value !== "") {
         total = firstValue + secondValue ;
     }
 
-    if (operator == '-' && inputScreen.value !== "") {
+    if (this.operator == '-' && inputScreen.value !== "") {
         if (firstValue !== 0) {
             total = firstValue - secondValue ;
         } else {
@@ -80,7 +81,7 @@ function calculation (operator) {
         
     }
 
-    if (operator == '*' && inputScreen.value !== "") {
+    if (this.operator == '*' && inputScreen.value !== "") {
         if (firstValue !== 0) {
             total = firstValue * secondValue ;
         } else {
@@ -89,7 +90,7 @@ function calculation (operator) {
         
     }
 
-    if (operator == '/' && inputScreen.value !== "") {
+    if (this.operator == '/' && inputScreen.value !== "") {
         if (firstValue !== 0) {
             total = firstValue / secondValue ;
         } else {
@@ -98,11 +99,11 @@ function calculation (operator) {
         
     }
 
-    if(operator == '%' && inputScreen.value !== "") {
+    if(this.operator == '%' && inputScreen.value !== "") {
         total = secondValue / 100 ;
     }
 
-    if(operator == '+/-' && inputScreen.value !== "") {
+    if(this.operator == '+/-' && inputScreen.value !== "") {
         if (secondValue > 0) {
             total = -secondValue ;
         }
