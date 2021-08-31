@@ -1,3 +1,4 @@
+// Github = diegofergamboa 
 var operator = null ;
 var valueMemo = 0 ;
 
