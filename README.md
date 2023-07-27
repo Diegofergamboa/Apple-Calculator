@@ -23,12 +23,3 @@ Check out the live demo of the AppleCalculator at [example.com/apple-calculator]
 ## License 📃
 
 This project is licensed under the MIT License.
-
-## How to Contribute 🤝
-
-If you find any issues or have ideas for improvements, feel free to contribute! To contribute, follow these steps:
-
-1. Fork the repository.
-2. Create a new branch:
-```bash
-git checkout -b feature/your-feature-name
