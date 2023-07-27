@@ -12,7 +12,7 @@ AppleCalculator is a simple calculator project built using CSS, HTML, and JavaSc
 
 ## Live Demo 🌐
 
-Check out the live demo of the AppleCalculator at [example.com/apple-calculator](https://example.com/apple-calculator)
+Check out the live demo of the AppleCalculator at 
 
 ## Technologies Used ⚙️
 
